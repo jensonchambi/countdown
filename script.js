@@ -21,5 +21,11 @@ document.getElementById("eventForm").addEventListener("submit", (event) => {
     });
 
     // Redirigir a countdown.html con los parámetros en la URL
-    window.location.href = `countdown.html?${params.toString()}`;
+    if (countdownStyle === "image") {
+        // Si la opción es "Generar imagen", abrir en una nueva pestaña
+        window.open(`countdown.html?${params.toString()}`, "_blank");
+    } else {
+        // Si no, redirigir en la misma pestaña
+        window.location.href = `countdown.html?${params.toString()}`;
+    }
 });
