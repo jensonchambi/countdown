@@ -27,23 +27,32 @@ h1 {
     text-align: center;
 }
 
+.image-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto 20px;
+}
+
 .event-image {
     width: 100%;
     max-height: 400px;
     object-fit: cover;
     border-radius: 8px;
-    margin: 0 auto 20px;
     display: block;
 }
 
-.location-icon {
-    width: 40px; /* Tamaño del ícono */
-    height: 40px;
-    margin: 10px 0;
-    cursor: pointer;
+.countdown-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
 }
 
-.countdown {
+.countdown-below {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,6 +106,13 @@ h1 {
     color: #666;
 }
 
+.location-icon {
+    width: 40px;
+    height: 40px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
 /* Media Queries para diseño responsivo */
 @media (max-width: 768px) {
     h1 {
@@ -104,13 +120,7 @@ h1 {
     }
 
     .event-image {
-        width: 90%;
         max-height: 200px;
-    }
-
-    .location-icon {
-        width: 30px;
-        height: 30px;
     }
 
     .countdown-box {
