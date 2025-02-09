@@ -7,11 +7,12 @@ function getQueryParams() {
         startDate: decodeURIComponent(params.get("startDate") || ""),
         eventLocation: decodeURIComponent(params.get("eventLocation") || ""),
         imageUrl: decodeURIComponent(params.get("imageUrl") || ""),
+        countdownStyle: decodeURIComponent(params.get("countdownStyle") || ""),
     };
 }
 
 function updateCountdown() {
-    const { eventName, startDate, imageUrl, eventLocation } = getQueryParams();
+    const { eventName, startDate, imageUrl, eventLocation, countdownStyle } = getQueryParams();
 
     if (!eventName || !startDate) {
         document.getElementById("days").textContent = "No se encontraron datos del evento.";
@@ -37,6 +38,15 @@ function updateCountdown() {
         document.getElementById("locationLink").style.display = "none"; // Ocultar si no hay ubicación
     }
 
+    // Mostrar el contador regresivo según la opción seleccionada
+    if (countdownStyle === "overlay") {
+        document.getElementById("countdownOverlay").style.display = "block";
+        document.getElementById("countdownBelow").style.display = "none";
+    } else {
+        document.getElementById("countdownOverlay").style.display = "none";
+        document.getElementById("countdownBelow").style.display = "flex";
+    }
+
     // Calcular el tiempo restante
     const eventTime = new Date(startDate).getTime();
     const now = new Date().getTime();
@@ -44,6 +54,7 @@ function updateCountdown() {
 
     if (timeDifference <= 0) {
         document.getElementById("days").textContent = "El evento ya ha comenzado.";
+        document.getElementById("daysBelow").textContent = "El evento ya ha comenzado.";
         return;
     }
 
@@ -62,6 +73,11 @@ function updateCountdown() {
     document.getElementById("hours").textContent = remainingHours.toString().padStart(2, "0");
     document.getElementById("minutes").textContent = remainingMinutes.toString().padStart(2, "0");
     document.getElementById("seconds").textContent = remainingSeconds.toString().padStart(2, "0");
+
+    document.getElementById("daysBelow").querySelector(".number").textContent = days.toString().padStart(2, "0");
+    document.getElementById("hoursBelow").textContent = remainingHours.toString().padStart(2, "0");
+    document.getElementById("minutesBelow").textContent = remainingMinutes.toString().padStart(2, "0");
+    document.getElementById("secondsBelow").textContent = remainingSeconds.toString().padStart(2, "0");
 }
 
 // Actualizar el contador cada segundo
