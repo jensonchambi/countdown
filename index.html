@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Evento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Evento</h1>
+        <form id="eventForm">
+            <div class="form-grid">
+    <div class="form-group">
+        <label for="eventName">Nombre del Evento:</label>
+        <input type="text" id="eventName" name="eventName" required>
+    </div>
+    <div class="form-group">
+        <label for="organizer">Organizador del Evento:</label>
+        <input type="text" id="organizer" name="organizer" required>
+    </div>
+    <div class="form-group">
+        <label for="startDate">Fecha y Hora de Inicio:</label>
+        <input type="datetime-local" id="startDate" name="startDate" required>
+    </div>
+    <div class="form-group">
+        <label for="eventLocation">Lugar del Evento (opcional):</label>
+        <input type="text" id="eventLocation" name="eventLocation" placeholder="Buscar en Google Maps...">
+    </div>
+    <div class="form-group full-width">
+        <div id="map" style="height: 200px; width: 100%; margin-top: 10px;"></div>
+    </div>
+    <div class="form-group">
+        <label for="imageUrl">URL de la Imagen del Evento:</label>
+        <input type="url" id="imageUrl" name="imageUrl" placeholder="https://ejemplo.com/imagen.jpg">
+    </div>
+</div>
+            <button type="submit">Registrar Evento</button>
+        </form>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
