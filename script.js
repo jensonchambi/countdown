@@ -8,6 +8,7 @@ document.getElementById("eventForm").addEventListener("submit", (event) => {
     const startDate = encodeURIComponent(document.getElementById("startDate").value);
     const eventLocation = encodeURIComponent(document.getElementById("eventLocation").value);
     const imageUrl = encodeURIComponent(document.getElementById("imageUrl").value);
+    const countdownStyle = encodeURIComponent(document.getElementById("countdownStyle").value);
 
     // Construir la URL con los parámetros
     const params = new URLSearchParams({
@@ -16,6 +17,7 @@ document.getElementById("eventForm").addEventListener("submit", (event) => {
         startDate,
         eventLocation,
         imageUrl,
+        countdownStyle,
     });
 
     // Redirigir a countdown.html con los parámetros en la URL
