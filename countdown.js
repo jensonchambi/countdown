@@ -3,9 +3,39 @@ function getQueryParams() {
     const params = new URLSearchParams(window.location.search);
     return {
         eventName: decodeURIComponent(params.get("eventName") || ""),
+        organizer: decodeURIComponent(params.get("organizer") || ""),
         startDate: decodeURIComponent(params.get("startDate") || ""),
+        eventLocation: decodeURIComponent(params.get("eventLocation") || ""),
         imageUrl: decodeURIComponent(params.get("imageUrl") || ""),
     };
+}
+
+function initMap() {
+    const { eventLocation } = getQueryParams();
+
+    if (!eventLocation) {
+        document.getElementById("map").style.display = "none"; // Ocultar el mapa si no hay ubicación
+        return;
+    }
+
+    // Usar la API de Geocoding para convertir la ubicación en coordenadas
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ address: eventLocation }, (results, status) => {
+        if (status === "OK" && results[0]) {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: results[0].geometry.location,
+                zoom: 15, // Nivel de zoom para mostrar la ubicación
+            });
+
+            // Agregar un marcador en la ubicación del evento
+            new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location,
+            });
+        } else {
+            document.getElementById("map").style.display = "none"; // Ocultar el mapa si no se encuentra la ubicación
+        }
+    });
 }
 
 function updateCountdown() {
@@ -22,7 +52,7 @@ function updateCountdown() {
     // Cargar la imagen del evento
     const eventImageElement = document.getElementById("eventImage");
     if (imageUrl) {
-        eventImageElement.src = imageUrl; // Asignar la URL de la imagen
+        eventImageElement.src = imageUrl;
     } else {
         eventImageElement.src = "https://picsum.photos/600/300"; // Imagen por defecto
     }
