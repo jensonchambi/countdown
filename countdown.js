@@ -19,12 +19,12 @@ function updateCountdown() {
     // Mostrar el nombre del evento
     document.getElementById("eventTitle").textContent = eventName;
 
-    // Aplicar la imagen de fondo
+    // Cargar la imagen del evento
     const eventImageElement = document.getElementById("eventImage");
     if (imageUrl) {
-        eventImageElement.style.backgroundImage = `url('${imageUrl}')`;
+        eventImageElement.src = imageUrl; // Asignar la URL de la imagen
     } else {
-        eventImageElement.style.backgroundImage = "url('https://picsum.photos/600/300')"; // Imagen por defecto
+        eventImageElement.src = "https://picsum.photos/600/300"; // Imagen por defecto
     }
 
     // Calcular el tiempo restante
