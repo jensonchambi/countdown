@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"> 
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +30,15 @@
                 <tr>
                     <td><label for="imageUrl">URL de la Imagen del Evento:</label></td>
                     <td><input type="url" id="imageUrl" name="imageUrl" placeholder="https://ejemplo.com/imagen.jpg"></td>
+                </tr>
+                <tr>
+                    <td><label for="countdownStyle">Estilo del Contador:</label></td>
+                    <td>
+                        <select id="countdownStyle" name="countdownStyle" required>
+                            <option value="below">Debajo de la imagen</option>
+                            <option value="overlay">Sobre la imagen</option>
+                        </select>
+                    </td>
                 </tr>
             </table>
             <button type="submit">Registrar Evento</button>
