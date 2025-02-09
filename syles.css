@@ -26,11 +26,10 @@ h1 {
     color: #333;
 }
 
-#eventImage {
-    height: 300px;
+.event-image {
     width: 100%;
-    background-size: cover;
-    background-position: center;
+    max-height: 300px;
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor */
     border-radius: 8px;
     margin-bottom: 20px;
 }
@@ -48,14 +47,14 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    width: 250px; /* Aumentamos el ancho para el número grande */
+    width: 250px;
 }
 
 .countdown-box .number {
-    font-size: 96px; /* Tamaño mucho más grande para los días */
+    font-size: 96px;
     font-weight: bold;
     display: block;
-    line-height: 1; /* Asegura que no haya espacio extra */
+    line-height: 1;
 }
 
 .countdown-box .label {
@@ -79,7 +78,7 @@ h1 {
 }
 
 .time-group .number {
-    font-size: 36px; /* Tamaño más pequeño para horas, minutos y segundos */
+    font-size: 36px;
 }
 
 .time-group .label {
@@ -93,8 +92,8 @@ h1 {
         font-size: 20px;
     }
 
-    #eventImage {
-        height: 200px;
+    .event-image {
+        max-height: 200px;
     }
 
     .countdown-box {
@@ -102,7 +101,7 @@ h1 {
     }
 
     .countdown-box .number {
-        font-size: 72px; /* Tamaño grande para móviles */
+        font-size: 72px;
     }
 
     .countdown-box .label {
