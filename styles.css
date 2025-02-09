@@ -28,7 +28,7 @@ h1 {
 }
 
 .event-image {
-    width: 80%;
+    width: 100%;
     max-height: 400px;
     object-fit: cover;
     border-radius: 8px;
