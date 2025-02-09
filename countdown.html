@@ -12,38 +12,59 @@
         <h1 id="eventTitle">Nombre del Evento</h1>
 
         <!-- Imagen del evento -->
-        <img id="eventImage" src="" alt="Imagen del Evento" class="event-image">
+        <div class="image-container">
+            <img id="eventImage" src="" alt="Imagen del Evento" class="event-image">
 
-        <!-- Ícono o imagen linkeada a la URL de Google Maps -->
-        <div id="locationLink">
-            <a id="mapLink" href="#" target="_blank">
-                <img src="ubicacion.png" alt="Ubicación" class="location-icon">
-            </a>
+            <!-- Contador regresivo sobre la imagen (overlay) -->
+            <div id="countdownOverlay" class="countdown-overlay">
+                <div id="days" class="countdown-box">
+                    <span class="number">00</span>
+                    <span class="label">Días</span>
+                </div>
+                <div id="time" class="countdown-time">
+                    <div class="time-group">
+                        <span id="hours" class="number">00</span>
+                        <span class="label">Horas</span>
+                    </div>
+                    <div class="time-group">
+                        <span id="minutes" class="number">00</span>
+                        <span class="label">Minutos</span>
+                    </div>
+                    <div class="time-group">
+                        <span id="seconds" class="number">00</span>
+                        <span class="label">Segundos</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Contador regresivo -->
-        <div class="countdown">
-            <!-- Días -->
-            <div id="days" class="countdown-box">
+        <!-- Contador regresivo debajo de la imagen -->
+        <div id="countdownBelow" class="countdown-below">
+            <div id="daysBelow" class="countdown-box">
                 <span class="number">00</span>
                 <span class="label">Días</span>
             </div>
-
-            <!-- Horas, minutos y segundos -->
-            <div id="time" class="countdown-time">
+            <div id="timeBelow" class="countdown-time">
                 <div class="time-group">
-                    <span id="hours" class="number">00</span>
+                    <span id="hoursBelow" class="number">00</span>
                     <span class="label">Horas</span>
                 </div>
                 <div class="time-group">
-                    <span id="minutes" class="number">00</span>
+                    <span id="minutesBelow" class="number">00</span>
                     <span class="label">Minutos</span>
                 </div>
                 <div class="time-group">
-                    <span id="seconds" class="number">00</span>
+                    <span id="secondsBelow" class="number">00</span>
                     <span class="label">Segundos</span>
                 </div>
             </div>
+        </div>
+
+        <!-- Ícono de ubicación -->
+        <div id="locationLink">
+            <a id="mapLink" href="#" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Location_dot_black.svg/1024px-Location_dot_black.svg.png" alt="Ubicación" class="location-icon">
+            </a>
         </div>
     </div>
 
