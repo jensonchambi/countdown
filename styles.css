@@ -17,23 +17,31 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 1200px; /* Aumentamos el ancho máximo del contenedor */
+    max-width: 1200px;
 }
 
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
     color: #333;
-    text-align: center; /* Centrar el título */
+    text-align: center;
 }
 
 .event-image {
-    width: 80%; /* 80% del ancho del contenedor */
-    max-height: 400px; /* Ajustamos la altura máxima */
-    object-fit: cover; /* Asegura que la imagen cubra el contenedor */
+    width: 80%;
+    max-height: 400px;
+    object-fit: cover;
     border-radius: 8px;
-    margin: 0 auto 20px; /* Centrar la imagen */
-    display: block; /* Asegura que el margen automático funcione */
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.event-map {
+    width: 80%;
+    height: 300px;
+    margin: 0 auto 20px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .countdown {
@@ -49,8 +57,8 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    width: 40%; /* 40% del ancho del contenedor */
-    margin: 0 auto; /* Centrar el cuadro de días */
+    width: 40%;
+    margin: 0 auto;
 }
 
 .countdown-box .number {
@@ -72,7 +80,7 @@ h1 {
     font-size: 24px;
     font-weight: bold;
     color: #333;
-    justify-content: center; /* Centrar horas, minutos y segundos */
+    justify-content: center;
 }
 
 .time-group {
@@ -97,12 +105,17 @@ h1 {
     }
 
     .event-image {
-        width: 90%; /* Aumentamos el ancho en móviles */
+        width: 90%;
         max-height: 200px;
     }
 
+    .event-map {
+        width: 90%;
+        height: 200px;
+    }
+
     .countdown-box {
-        width: 60%; /* Aumentamos el ancho en móviles */
+        width: 60%;
     }
 
     .countdown-box .number {
