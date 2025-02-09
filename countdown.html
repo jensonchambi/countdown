@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Regresivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="countdown-container">
+        <!-- Título del evento -->
+        <h1 id="eventTitle">Nombre del Evento</h1>
+
+        <!-- Imagen del evento -->
+        <div id="eventImage"></div>
+
+        <!-- Contador regresivo -->
+        <div class="countdown">
+            <!-- Días -->
+            <div id="days" class="countdown-box">
+                <span class="number">00</span>
+                <span class="label">Días</span>
+            </div>
+
+            <!-- Horas, minutos y segundos -->
+            <div id="time" class="countdown-time">
+                <div class="time-group">
+                    <span id="hours" class="number">00</span>
+                    <span class="label">Horas</span>
+                </div>
+                <div class="time-group">
+                    <span id="minutes" class="number">00</span>
+                    <span class="label">Minutos</span>
+                </div>
+                <div class="time-group">
+                    <span id="seconds" class="number">00</span>
+                    <span class="label">Segundos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="countdown.js"></script>
+</body>
+</html>
