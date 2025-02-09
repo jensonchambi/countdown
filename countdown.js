@@ -10,50 +10,8 @@ function getQueryParams() {
     };
 }
 
-function extractCoordinatesFromUrl(url) {
-    // Extraer las coordenadas de una URL de Google Maps
-    const match = url.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
-    if (match) {
-        return {
-            lat: parseFloat(match[1]),
-            lng: parseFloat(match[2]),
-        };
-    }
-    return null;
-}
-
-function initMap() {
-    const { eventLocation } = getQueryParams();
-
-    if (!eventLocation) {
-        document.getElementById("map").style.display = "none"; // Ocultar el mapa si no hay ubicación
-        return;
-    }
-
-    // Extraer las coordenadas de la URL de Google Maps
-    const coordinates = extractCoordinatesFromUrl(eventLocation);
-
-    if (!coordinates) {
-        document.getElementById("map").style.display = "none"; // Ocultar el mapa si no se encuentran coordenadas
-        console.error("No se pudieron extraer coordenadas de la URL de Google Maps.");
-        return;
-    }
-
-    // Mostrar el mapa con las coordenadas extraídas
-    const map = new google.maps.Map(document.getElementById("map"), {
-        center: coordinates,
-        zoom: 15, // Nivel de zoom para mostrar la ubicación
-    });
-
-    // Agregar un marcador en la ubicación del evento
-    new google.maps.Marker({
-        map: map,
-        position: coordinates,
-    });
-}
-
 function updateCountdown() {
-    const { eventName, startDate, imageUrl } = getQueryParams();
+    const { eventName, startDate, imageUrl, eventLocation } = getQueryParams();
 
     if (!eventName || !startDate) {
         document.getElementById("days").textContent = "No se encontraron datos del evento.";
@@ -69,6 +27,14 @@ function updateCountdown() {
         eventImageElement.src = imageUrl;
     } else {
         eventImageElement.src = "https://picsum.photos/600/300"; // Imagen por defecto
+    }
+
+    // Asignar la URL de Google Maps al enlace del ícono
+    const mapLinkElement = document.getElementById("mapLink");
+    if (eventLocation) {
+        mapLinkElement.href = eventLocation;
+    } else {
+        document.getElementById("locationLink").style.display = "none"; // Ocultar si no hay ubicación
     }
 
     // Calcular el tiempo restante
@@ -97,9 +63,6 @@ function updateCountdown() {
     document.getElementById("minutes").textContent = remainingMinutes.toString().padStart(2, "0");
     document.getElementById("seconds").textContent = remainingSeconds.toString().padStart(2, "0");
 }
-
-// Inicializar el mapa cuando la API de Google Maps esté lista
-window.initMap = initMap;
 
 // Actualizar el contador cada segundo
 setInterval(updateCountdown, 1000);
