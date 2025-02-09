@@ -36,12 +36,11 @@ h1 {
     display: block;
 }
 
-.event-map {
-    width: 80%;
-    height: 300px;
-    margin: 0 auto 20px;
-    border-radius: 8px;
-    overflow: hidden;
+.location-icon {
+    width: 40px; /* Tamaño del ícono */
+    height: 40px;
+    margin: 10px 0;
+    cursor: pointer;
 }
 
 .countdown {
@@ -109,9 +108,9 @@ h1 {
         max-height: 200px;
     }
 
-    .event-map {
-        width: 90%;
-        height: 200px;
+    .location-icon {
+        width: 30px;
+        height: 30px;
     }
 
     .countdown-box {
