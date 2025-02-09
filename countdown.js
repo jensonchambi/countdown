@@ -48,7 +48,11 @@ function updateCountdown() {
     } else if (countdownStyle === "image") {
         document.getElementById("countdownOverlay").style.display = "block";
         document.getElementById("countdownBelow").style.display = "none";
-        generateImage(); // Generar la imagen
+
+        // Esperar a que la imagen de fondo se cargue completamente
+        eventImageElement.onload = () => {
+            generateImage(); // Generar la imagen solo una vez
+        };
     }
 
     // Calcular el tiempo restante
@@ -86,7 +90,12 @@ function updateCountdown() {
 
 // Función para generar la imagen
 function generateImage() {
-    html2canvas(document.getElementById("countdownContainer")).then((canvas) => {
+    // Configurar html2canvas para capturar correctamente la imagen de fondo
+    html2canvas(document.getElementById("countdownContainer"), {
+        useCORS: true, // Permitir el uso de imágenes externas (CORS)
+        allowTaint: true, // Permitir el uso de imágenes externas (taint)
+        logging: true, // Habilitar logs para depuración
+    }).then((canvas) => {
         // Convertir el canvas a una imagen
         const image = canvas.toDataURL("image/png");
 
@@ -95,6 +104,8 @@ function generateImage() {
         link.href = image;
         link.download = "evento.png";
         link.click();
+    }).catch((error) => {
+        console.error("Error al generar la imagen:", error);
     });
 }
 
