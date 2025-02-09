@@ -1,0 +1,123 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.countdown-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#eventImage {
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.countdown-box {
+    background-color: #28a745;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 250px; /* Aumentamos el ancho para el número grande */
+}
+
+.countdown-box .number {
+    font-size: 96px; /* Tamaño mucho más grande para los días */
+    font-weight: bold;
+    display: block;
+    line-height: 1; /* Asegura que no haya espacio extra */
+}
+
+.countdown-box .label {
+    font-size: 20px;
+    display: block;
+    margin-top: 10px;
+}
+
+.countdown-time {
+    display: flex;
+    gap: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.time-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-group .number {
+    font-size: 36px; /* Tamaño más pequeño para horas, minutos y segundos */
+}
+
+.time-group .label {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Media Queries para diseño responsivo */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    #eventImage {
+        height: 200px;
+    }
+
+    .countdown-box {
+        width: 200px;
+    }
+
+    .countdown-box .number {
+        font-size: 72px; /* Tamaño grande para móviles */
+    }
+
+    .countdown-box .label {
+        font-size: 18px;
+    }
+
+    .countdown-time {
+        gap: 10px;
+    }
+
+    .time-group .number {
+        font-size: 24px;
+    }
+
+    .time-group .label {
+        font-size: 12px;
+    }
+}
