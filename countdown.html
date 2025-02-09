@@ -14,8 +14,12 @@
         <!-- Imagen del evento -->
         <img id="eventImage" src="" alt="Imagen del Evento" class="event-image">
 
-        <!-- Mapa de Google Maps -->
-        <div id="map" class="event-map"></div>
+        <!-- Ícono o imagen linkeada a la URL de Google Maps -->
+        <div id="locationLink">
+            <a id="mapLink" href="#" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Location_dot_black.svg/1024px-Location_dot_black.svg.png" alt="Ubicación" class="location-icon">
+            </a>
+        </div>
 
         <!-- Contador regresivo -->
         <div class="countdown">
@@ -43,8 +47,6 @@
         </div>
     </div>
 
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
     <script src="countdown.js"></script>
 </body>
 </html>
