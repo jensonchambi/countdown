@@ -42,9 +42,13 @@ function updateCountdown() {
     if (countdownStyle === "overlay") {
         document.getElementById("countdownOverlay").style.display = "block";
         document.getElementById("countdownBelow").style.display = "none";
-    } else {
+    } else if (countdownStyle === "below") {
         document.getElementById("countdownOverlay").style.display = "none";
         document.getElementById("countdownBelow").style.display = "flex";
+    } else if (countdownStyle === "image") {
+        document.getElementById("countdownOverlay").style.display = "block";
+        document.getElementById("countdownBelow").style.display = "none";
+        generateImage(); // Generar la imagen
     }
 
     // Calcular el tiempo restante
@@ -78,6 +82,20 @@ function updateCountdown() {
     document.getElementById("hoursBelow").textContent = remainingHours.toString().padStart(2, "0");
     document.getElementById("minutesBelow").textContent = remainingMinutes.toString().padStart(2, "0");
     document.getElementById("secondsBelow").textContent = remainingSeconds.toString().padStart(2, "0");
+}
+
+// Función para generar la imagen
+function generateImage() {
+    html2canvas(document.getElementById("countdownContainer")).then((canvas) => {
+        // Convertir el canvas a una imagen
+        const image = canvas.toDataURL("image/png");
+
+        // Crear un enlace para descargar la imagen
+        const link = document.createElement("a");
+        link.href = image;
+        link.download = "evento.png";
+        link.click();
+    });
 }
 
 // Actualizar el contador cada segundo
